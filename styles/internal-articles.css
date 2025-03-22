@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Barlow+Condensed:wght@700&display=swap");
+
+.expertise-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 30px;
+}
+.process-margins{
+  margin-top: 80px;
+}
+
+.expertise-content {
+  flex: 1;
+  max-width: 520px;
+}
+
+.expertise-label {
+  display: block;
+  color: #00a680;
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.expertise-heading {
+  color: #373737;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 60px;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  margin-top: 0;
+}
+
+.expertise-description {
+  color: #474747;
+  font-family: "Jost", sans-serif;
+  font-size: 19px;
+  line-height: 28.5px;
+  margin-bottom: 35px;
+}
+
+.expertise-image-container {
+  flex: 1;
+}
+
+.expertise-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.ink-main-title {
+  margin-top: 10px;
+}
+
+@media (max-width: 991px) {
+    .expertise-container {
+        display: flex;
+    }
+    .process-margins{
+      margin-top: 40px;
+    }
+    .expertise-image {
+    width: 400px;
+      height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+  .expertise-container {
+    padding: 0 15px;
+    gap: 30px;
+  }
+  
+
+  .expertise-content {
+    max-width: 100%;
+  }
+
+  .expertise-heading {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .expertise-image-container {
+    width: 100%;
+  }
+
+  .expertise-image {
+      width: 350px;
+      height: 600px;
+    }
+}
+
+@media (max-width: 640px) {
+  .expertise-container {
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 20px;
+  }
+  .switch {
+    flex-direction: column-reverse;
+  }
+  .ink-main-title {
+    margin-top: 0;
+  }
+  .expertise-heading {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .expertise-description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .expertise-image {
+    width: 100%;
+      height: auto;
+    }
+}

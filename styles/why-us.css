@@ -1,0 +1,199 @@
+#why-us-container { 
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    align-items: stretch; 
+}
+
+#why-us-container .image-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    line-height: normal;
+    width: 39%;
+    overflow: hidden;
+}
+
+#why-us-container .image-column::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3B5B4C; /* Light pink overlay */
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#why-us-container .feature-image {
+    aspect-ratio: 0.68;
+    object-fit: cover; 
+    width: 100%;
+    height: 100%;
+}
+
+#why-us-container .content-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    line-height: normal;
+    width: 61%;
+}
+
+#why-us-container .content-background {
+    background-color: rgba(39, 51, 34, 1);
+    display: flex;
+    flex-grow: 1;
+    padding: 108px 80px;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+#why-us-container .section-label {
+    color: rgba(0, 166, 128, 1);
+    font-size: 12px;
+    font-family:
+        Jost,
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
+    font-weight: 700;
+    line-height: 2;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+#why-us-container .section-heading {
+    color: rgba(255, 255, 255, 1);
+    font-size: 48px;
+    font-family:
+        "Barlow Condensed",
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
+    font-weight: 700;
+    line-height: 55px;
+    letter-spacing: -1.25px;
+    text-transform: uppercase;
+    margin-top: 26px;
+}
+
+#why-us-container .section-divider {
+    border: none;
+    border-top: 1px solid rgba(0, 166, 128, 1);
+    margin-top: 37px;
+    margin-left: 0;
+    width: 84px;
+    height: 1px;
+}
+
+#why-us-container .stats-container {
+    display: flex;
+    margin-top: 52px;
+    width: 463px;
+    max-width: 100%;
+    align-items: stretch;
+    gap: 40px 54px;
+    justify-content: flex-start;
+}
+
+#why-us-container .stat-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#why-us-container .stat-number {
+    color: rgba(0, 166, 128, 1);
+    font-size: 60px;
+    font-family:
+        "Barlow Condensed",
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#why-us-container .stat-label {
+    color: rgba(255, 255, 255, 1);
+    font-size: 15px;
+    font-family:
+        Jost,
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
+    font-weight: 400;
+    line-height: 2.5;
+    margin-top: 17px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+    #why-us-container {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    #why-us-container .image-column,
+    #why-us-container .content-column {
+        width: 100%;
+        flex-grow: 1;
+        margin-left: 0;
+    }
+
+    #why-us-container .feature-image {
+        width: 100%;
+        height: 12.5vh; 
+        object-fit: cover;
+    }
+
+    #why-us-container .content-background {
+        max-width: 100%;
+        padding: 100px 20px;
+    }
+
+    #why-us-container .section-heading {
+        font-size: 40px;
+        line-height: 51px;
+    }
+
+    #why-us-container .stats-container {
+        margin-top: 40px;
+    }
+    #why-us-container .stat-item {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    #why-us-container .stat-number {
+        font-size: 40px;
+        line-height: 1;
+    }
+
+    #why-us-container .stat-label {
+        font-size: 20px;
+        margin: 0;
+        align-self: flex-start;
+    }
+}
+@media (max-width: 600px) {
+    #why-us-container .stats-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
