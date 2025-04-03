@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Jump Game</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #000;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .warning {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgb(85, 230, 165);
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .warning a {
+            color: #000;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .game-container {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            background: #111;
+            border: 2px solid rgb(85, 230, 165);
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: rgb(85, 230, 165);
+        }
+
+        .dog {
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            width: 40px;
+            height: 40px;
+            background: rgb(85, 230, 165);
+            border-radius: 50%;
+        }
+
+        .obstacle {
+            position: relative;
+            width: 20px;
+            background: #ff4444;
+            border-radius: 4px;
+            margin-bottom: 0;
+        }
+
+        .obstacle.small {
+            height: 30px;
+        }
+
+        .obstacle.medium {
+            height: 40px;
+        }
+
+        .obstacle.large {
+            height: 50px;
+        }
+
+        .obstacle-group {
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            align-items: flex-end;
+        }
+
+        .score {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            color: rgb(85, 230, 165);
+        }
+
+        .game-over {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 2px solid rgb(85, 230, 165);
+        }
+
+        .game-over h2, .game-over p {
+            color: #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: rgb(85, 230, 165);
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: rgb(70, 200, 140);
+        }
+
+        .instructions {
+            margin-top: 20px;
+            text-align: center;
+            color: rgb(85, 230, 165);
+        }
+
+        .start-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 24px;
+            color: rgb(85, 230, 165);
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 2px solid rgb(85, 230, 165);
+        }
+    </style>
+</head>
+<body>
+    <div class="warning">
+        You've reached the wrong site! Please visit <a href="https://inkwebdesign.com" target="_blank">inkwebdesign.com</a> instead.
+    </div>
+    <div class="game-container">
+        <div class="ground"></div>
+        <div class="dog" id="dog"></div>
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="game-over" id="gameOver">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+        <div class="start-message" id="startMessage">
+            Press SPACE to Start
+        </div>
+    </div>
+    <div class="instructions">
+        Press SPACE to jump over obstacles!
+    </div>
+
+    <script>
+        class Game {
+            constructor() {
+                this.dog = document.getElementById('dog');
+                this.gameOver = document.getElementById('gameOver');
+                this.scoreElement = document.getElementById('score');
+                this.finalScoreElement = document.getElementById('finalScore');
+                this.startMessage = document.getElementById('startMessage');
+                
+                this.isJumping = false;
+                this.score = 0;
+                this.gameLoop = null;
+                this.isGameOver = false;
+                this.gameStarted = false;
+                this.jumpHeight = 120;
+                this.jumpSpeed = 3;
+                this.obstacleSpeed = 4;
+                this.obstacleInterval = 2000;
+                
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                document.addEventListener('keydown', (event) => {
+                    if (event.code === 'Space') {
+                        event.preventDefault();
+                        this.handleSpacePress();
+                    }
+                });
+            }
+
+            handleSpacePress() {
+                if (!this.gameStarted) {
+                    this.startGame();
+                    return;
+                }
+                if (!this.isJumping && !this.isGameOver) {
+                    this.jump();
+                }
+            }
+
+            jump() {
+                this.isJumping = true;
+                let position = 0;
+                
+                const jumpUp = () => {
+                    if (position >= this.jumpHeight) {
+                        jumpDown();
+                    } else {
+                        position += this.jumpSpeed;
+                        this.dog.style.bottom = position + 'px';
+                        requestAnimationFrame(jumpUp);
+                    }
+                };
+
+                const jumpDown = () => {
+                    if (position <= 0) {
+                        this.isJumping = false;
+                        this.dog.style.bottom = '0';
+                    } else {
+                        position -= this.jumpSpeed;
+                        this.dog.style.bottom = position + 'px';
+                        requestAnimationFrame(jumpDown);
+                    }
+                };
+
+                jumpUp();
+            }
+
+            createObstacle() {
+                if (this.isGameOver) return;
+
+                // Randomly choose obstacle type with adjusted probabilities
+                const obstacleType = Math.random();
+                let obstacleGroup;
+
+                if (obstacleType < 0.2) {
+                    // Single obstacle
+                    obstacleGroup = this.createSingleObstacle();
+                } else if (obstacleType < 0.5) {
+                    // Two obstacles
+                    obstacleGroup = this.createDoubleObstacle();
+                } else {
+                    // Three obstacles
+                    obstacleGroup = this.createTripleObstacle();
+                }
+
+                document.querySelector('.game-container').appendChild(obstacleGroup);
+                
+                let position = 580;
+                
+                const moveObstacle = () => {
+                    if (position <= -200) {
+                        obstacleGroup.remove();
+                        this.score++;
+                        this.scoreElement.textContent = this.score;
+                    } else {
+                        position -= this.obstacleSpeed;
+                        obstacleGroup.style.right = `${580 - position}px`;
+                        
+                        // Collision detection
+                        const dogRect = this.dog.getBoundingClientRect();
+                        const obstacles = obstacleGroup.querySelectorAll('.obstacle');
+                        
+                        for (const obstacle of obstacles) {
+                            const obstacleRect = obstacle.getBoundingClientRect();
+                            if (dogRect.right > obstacleRect.left && 
+                                dogRect.left < obstacleRect.right && 
+                                dogRect.bottom > obstacleRect.top) {
+                                this.endGame();
+                                return;
+                            }
+                        }
+                        
+                        requestAnimationFrame(moveObstacle);
+                    }
+                };
+
+                moveObstacle();
+            }
+
+            createSingleObstacle() {
+                const group = document.createElement('div');
+                group.className = 'obstacle-group';
+                
+                const obstacle = document.createElement('div');
+                obstacle.className = 'obstacle';
+                const height = Math.random();
+                if (height < 0.4) obstacle.classList.add('small');
+                else if (height < 0.7) obstacle.classList.add('medium');
+                else obstacle.classList.add('large');
+                
+                group.appendChild(obstacle);
+                return group;
+            }
+
+            createDoubleObstacle() {
+                const group = document.createElement('div');
+                group.className = 'obstacle-group';
+                
+                // Create two obstacles with different heights
+                for (let i = 0; i < 2; i++) {
+                    const obstacle = document.createElement('div');
+                    obstacle.className = 'obstacle';
+                    const height = Math.random();
+                    if (height < 0.4) obstacle.classList.add('small');
+                    else if (height < 0.7) obstacle.classList.add('medium');
+                    else obstacle.classList.add('large');
+                    
+                    group.appendChild(obstacle);
+                }
+                
+                return group;
+            }
+
+            createTripleObstacle() {
+                const group = document.createElement('div');
+                group.className = 'obstacle-group';
+                
+                // Create three obstacles with different heights
+                for (let i = 0; i < 3; i++) {
+                    const obstacle = document.createElement('div');
+                    obstacle.className = 'obstacle';
+                    const height = Math.random();
+                    if (height < 0.4) obstacle.classList.add('small');
+                    else if (height < 0.7) obstacle.classList.add('medium');
+                    else obstacle.classList.add('large');
+                    
+                    group.appendChild(obstacle);
+                }
+                
+                return group;
+            }
+
+            startGame() {
+                this.gameStarted = true;
+                this.startMessage.style.display = 'none';
+                this.gameLoop = setInterval(() => this.createObstacle(), this.obstacleInterval);
+                this.createObstacle();
+            }
+
+            endGame() {
+                this.isGameOver = true;
+                clearInterval(this.gameLoop);
+                this.gameOver.style.display = 'block';
+                this.finalScoreElement.textContent = this.score;
+            }
+
+            restartGame() {
+                this.isGameOver = false;
+                this.score = 0;
+                this.scoreElement.textContent = '0';
+                this.gameOver.style.display = 'none';
+                this.dog.style.bottom = '0';
+                document.querySelectorAll('.obstacle').forEach(obs => obs.remove());
+                this.startGame();
+            }
+        }
+
+        // Initialize the game
+        const game = new Game();
+
+        // Fix the play again button by making it use the game instance
+        document.querySelector('button').onclick = () => game.restartGame();
+    </script>
+</body>
+</html> 
