@@ -1,0 +1,18 @@
+User-agent: Googlebot
+Allow: /
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.xml$
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+User-agent: *
+Allow: /sitemap.xml
+Allow: /robots.txt
+Disallow: / 
