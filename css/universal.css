@@ -121,3 +121,11 @@ a[href^="tel:"] {
     color: inherit !important;
     text-decoration: none !important;
 } 
+/* Ensure buttons maintain their text color */
+.btn, .btn-primary, .btn-secondary {
+    color: #fff !important;
+}
+
+.btn-primary {
+    color: #fff !important;
+} 
