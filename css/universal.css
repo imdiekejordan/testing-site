@@ -106,18 +106,17 @@ body {
   }
 } 
 
-/ Override default phone number and license number styling */
 a[href^="tel:"] {
     color: #222 !important;
     text-decoration: none !important;
 }
 
-.hero-phone-number, .about-us-phone-number {
-    color: #ffffff !important;
+.footer-value, .hero-phone-number, .about-us-phone-number {
+    color: #fff !important;
     text-decoration: none !important;
 }*
 
-.footer-copyright, .footer-value {
+.footer-copyright{
     color: #222 !important;
     text-decoration: none !important;
 }
