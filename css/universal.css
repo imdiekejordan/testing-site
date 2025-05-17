@@ -105,3 +105,19 @@ body {
     gap: 10px;
   }
 } 
+
+/* Override default phone number and license number styling */
+a[href^="tel:"] {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.footer-value, .hero-phone-number, .about-us-phone-number {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.footer-copyright {
+    color: inherit !important;
+    text-decoration: none !important;
+} 
