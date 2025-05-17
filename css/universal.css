@@ -106,26 +106,18 @@ body {
   }
 } 
 
+/ Override default phone number and license number styling */
 a[href^="tel:"] {
     color: #222 !important;
     text-decoration: none !important;
 }
 
-.footer-value, .hero-phone-number, .about-us-phone-number {
-    color: #222 !important;
+.hero-phone-number, .about-us-phone-number {
+    color: #ffffff !important;
     text-decoration: none !important;
 }*
 
-.footer-copyright {
+.footer-copyright, .footer-value {
     color: #222 !important;
     text-decoration: none !important;
 }
-
-/* Ensure buttons maintain their text color */
-.btn, .btn-primary, .btn-secondary {
-    color: #fff !important;
-}
-
-.btn-primary {
-    color: #fff !important;
-} 
