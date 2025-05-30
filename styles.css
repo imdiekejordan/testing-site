@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+#glow-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.center-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.credit-card-img {
+  width: 420px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  border-radius: 20px;
+  background: transparent;
+}
+
+.card-3d-container {
+  perspective: 1200px;
+  width: 420px;
+  max-width: 90vw;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#credit-card-3d {
+  transition: transform 0.2s cubic-bezier(.25,.8,.25,1), box-shadow 0.2s;
+  will-change: transform;
+  display: block;
+} 
