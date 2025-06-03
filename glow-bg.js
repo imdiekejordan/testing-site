@@ -1,7 +1,7 @@
 const canvas = document.getElementById('glow-bg');
 const ctx = canvas.getContext('2d');
 
-let BALL_COUNT = window.innerWidth < 768 ? 20 : 50;
+let BALL_COUNT = window.innerWidth < 768 ? 10 : 20;
 let balls = [];
 const colors = [
   'rgba(74, 243, 184, 0.7)', // green
@@ -30,7 +30,7 @@ function createBalls(count) {
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  BALL_COUNT = window.innerWidth < 768 ? 20 : 50;
+  BALL_COUNT = window.innerWidth < 768 ? 10 : 20;
   balls = createBalls(BALL_COUNT);
 }
 window.addEventListener('resize', resizeCanvas);
