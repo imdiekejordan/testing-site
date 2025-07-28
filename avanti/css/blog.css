@@ -1,0 +1,115 @@
+/* Blog-specific page-head centering */
+#page-head .page-head-content {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+#page-head .page-head-text {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+#page-head .page-head-description {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#page-head .page-head-cta-btn {
+  align-self: center !important;
+}
+
+#blog {
+  padding: 70px 0 90px 0;
+}
+#blog .blog-container {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#blog .blog-pretitle {
+  text-align: center;
+}
+#blog .blog-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+#blog .blog-cards-row {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#blog .blog-card {
+  background: #fff;
+  min-width: 280px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+#blog .blog-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+#blog .blog-card-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6e777d;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+#blog .blog-card-dot {
+  font-size: 1.2em;
+  color: #C59B5E;
+}
+#blog .blog-card-heading {
+  display: block;
+  color: #222222;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  border-bottom: 1px solid #d6d6d6;
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+#blog .blog-card-heading:hover {
+  color: #C59B5E;
+}
+#blog .blog-card-btn {
+  padding: 18px 28px 18px 18px;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+#blog .blog-card-btn:hover {
+  background: #C59B5E;
+  color: #fff;
+}
+#blog .blog-card-btn-arrow {
+  font-size: 1.1em;
+  margin-left: 6px;
+}
+#blog .blog-card-content {
+  padding: 20px 30px 20px 30px;
+  border: 1px solid #d6d6d6;
+}

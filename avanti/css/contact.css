@@ -1,0 +1,124 @@
+#contact {
+    background: url('../images/hero-marble.png') center/cover no-repeat;
+    padding: 80px 0 100px 0;
+    position: relative;
+    z-index: 1;
+  }
+  #contact::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 15, 15, 0.88); /* strong dark overlay */
+    z-index: 2;
+    pointer-events: none;
+  }
+  #contact .contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+  }
+  #contact .contact-eyebrow {
+    color: #C59B5E;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  #contact .contact-title {
+    color: #fff;
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 38px;
+    line-height: 1.2;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  }
+  #contact .contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  #contact .contact-input,
+  #contact .contact-textarea {
+    width: 100%;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 1px;
+    font-size: 1.1rem;
+    background: rgba(255,255,255,0.92);
+    color: #222;
+    font-family: inherit;
+    margin-bottom: 0;
+    outline: none;
+    transition: box-shadow 0.2s;
+  }
+  #contact .contact-input:focus,
+  #contact .contact-textarea:focus {
+    box-shadow: 0 0 0 2px #C59B5E;
+  }
+  #contact .contact-textarea {
+    min-height: 70px;
+    resize: vertical;
+  }
+  #contact .contact-submit {
+    margin: 0 auto;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    color: #222;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+  }
+  #contact .contact-submit:hover {
+      background: #e6c97a;
+  
+  }
+  #contact .contact-arrow {
+      background: #e6c97a;
+      padding: 0.7em 0.7em;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  #contact .contact-input:-webkit-autofill,
+  #contact .contact-input:-webkit-autofill:focus,
+  #contact .contact-input:-webkit-autofill:hover,
+  #contact .contact-textarea:-webkit-autofill,
+  #contact .contact-textarea:-webkit-autofill:focus,
+  #contact .contact-textarea:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.92) inset !important;
+    box-shadow: 0 0 0 1000px rgba(255,255,255,0.92) inset !important;
+    -webkit-text-fill-color: #222 !important;
+    color: #222 !important;
+    border-radius: 1px;
+  }
+  @media (max-width: 768px) {
+    #contact .contact-container {
+      max-width: 95vw;
+      padding: 0 8px;
+    }
+  }
+  @media (max-width: 600px) {
+    #contact .contact-title {
+      font-size: 1.5rem;
+    }
+    #contact {
+      padding: 48px 0 60px 0;
+    }
+  } 
