@@ -5,72 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avanti Construction - San Francisco Construction Company</title>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/universal.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/hero.css">
-  <link rel="stylesheet" href="/css/about.css">
-  <link rel="stylesheet" href="/css/services.css">
-  <link rel="stylesheet" href="/css/cta.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/contact.css">
-  <link rel="stylesheet" href="/css/blog.css">
-  <link rel="stylesheet" href="/css/testimonials.css">
+  <link rel="stylesheet" href="/avanti/css/universal.css">
+  <link rel="stylesheet" href="/avanti/css/header.css">
+  <link rel="stylesheet" href="/avanti/css/hero.css">
+  <link rel="stylesheet" href="/avanti/css/about.css">
+  <link rel="stylesheet" href="/avanti/css/services.css">
+  <link rel="stylesheet" href="/avanti/css/cta.css">
+  <link rel="stylesheet" href="/avanti/css/footer.css">
+  <link rel="stylesheet" href="/avanti/css/contact.css">
+  <link rel="stylesheet" href="/avanti/css/blog.css">
+  <link rel="stylesheet" href="/avanti/css/testimonials.css">
 </head>
 <body>
-  <!-- Password Protection Overlay -->
-  <div id="password-overlay">
-    <div class="glow-effect"></div>
-    <div class="login-container">
-      <div class="login-card">
-        <img src="images/avanti-logo.png" alt="Avanti Logo" class="avanti-logo-img">
-        <form id="password-form" autocomplete="off" onsubmit="return false;">
-          <div class="form-group">
-            <label for="site-password">Password</label>
-            <input type="password" id="site-password" placeholder="Enter password" autofocus />
-          </div>
-          <button type="submit" class="login-btn">Access Site</button>
-          <div id="password-error" class="error-message">Incorrect password. Please try again.</div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <script>
-    // Password protection script
-    (function() {
-      var PASSWORD = "InkWebDesign404";
-      var overlay = document.getElementById('password-overlay');
-      var form = document.getElementById('password-form');
-      var input = document.getElementById('site-password');
-      var error = document.getElementById('password-error');
-      // Hide all body except overlay
-      document.body.style.overflow = 'hidden';
-      document.body.style.height = '100vh';
-      overlay.style.display = 'flex';
-      form.onsubmit = function() {
-        if (input.value === PASSWORD) {
-          overlay.style.display = 'none';
-          document.body.style.overflow = '';
-          document.body.style.height = '';
-          input.value = '';
-          error.style.display = 'none';
-        } else {
-          error.style.display = 'block';
-          input.value = '';
-          input.focus();
-        }
-      };
-      // Optional: allow Enter key to submit
-      input.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') form.onsubmit();
-      });
-      // Prevent scrolling
-      window.scrollTo(0,0);
-    })();
-  </script>
+
   <header class="site-header" id="header">
     <div class="header-flex">
       <div class="header-left">
-        <img src="images/avanti-logo.png" alt="Avanti Construction Logo" class="logo-image">
+        <img src="/avanti/images/avanti-logo.png" alt="Avanti Construction Logo" class="logo-image">
       </div>
       <div class="header-right">
         <button class="hamburger-menu" aria-label="Toggle Menu">
@@ -81,33 +32,33 @@
         <div class="header-actions">
             <nav>
                 <ul>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/avanti/index.html">Home</a></li>
+                    <li><a href="/avanti/about.html">About</a></li>
                     <li class="has-dropdown">
                         <a href="javascript:void(0)">Services <svg class="nav-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/services/home-renovation.html">Home Renovation</a></li>
-                            <li><a href="/services/kitchen-renovation.html">Kitchen Renovation</a></li>
-                            <li><a href="/services/bathroom-renovation.html">Bathroom Renovation</a></li>
-                            <li><a href="/services/adu.html">Accessory Dwelling Units</a></li>
-                            <li><a href="/services/garage.html">Garage Conversion</a></li>
-                            <li><a href="/services/grading.html">Grading Services</a></li>
-                            <li><a href="/services/foundation.html">Foundation Services</a></li>
-                            <li><a href="/services/framing.html">Framing Services</a></li>
-                            <li><a href="/services.html">View All Services</a></li>
+                            <li><a href="/avanti/services/home-renovation.html">Home Renovation</a></li>
+                            <li><a href="/avanti/services/kitchen-renovation.html">Kitchen Renovation</a></li>
+                            <li><a href="/avanti/services/bathroom-renovation.html">Bathroom Renovation</a></li>
+                            <li><a href="/avanti/services/adu.html">Accessory Dwelling Units</a></li>
+                            <li><a href="/avanti/services/garage.html">Garage Conversion</a></li>
+                            <li><a href="/avanti/services/grading.html">Grading Services</a></li>
+                            <li><a href="/avanti/services/foundation.html">Foundation Services</a></li>
+                            <li><a href="/avanti/services/framing.html">Framing Services</a></li>
+                            <li><a href="/avanti/services.html">View All Services</a></li>
                         </ul>
                     </li>
-                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/avanti/contact.html">Contact</a></li>
                 </ul>
             </nav>
-              <a href="/contact.html" class="btn">Request Quote</a>
+              <a href="/avanti/contact.html" class="btn">Request Quote</a>
           </div>
       </div>
     </div>
   </header>
   <section id="hero">
     <div class="hero-left">
-      <img class="hero-left-bg" src="images/hero-marble.png" alt="Background Marble" />
+      <img class="hero-left-bg" src="/avanti/images/hero-marble.png" alt="Background Marble" />
       <div class="hero-categories">CONSTRUCTION · DESIGN · MANAGEMENT</div>
       <h1 class="hero-title">Imagination Meets<br>Reality In Design</h1>
       <p class="hero-description">Welcome to Avanti Construction, your ultimate destination for transforming spaces into captivating works of art.</p>
@@ -123,7 +74,7 @@
       </button>
     </div>
     <div class="hero-right">
-      <img class="hero-image" src="images/hero-image.png" alt="Modern interior design" />
+      <img class="hero-image" src="/avanti/images/hero-image.png" alt="Modern interior design" />
     </div>
   </section>
   <section id="about">
@@ -138,7 +89,7 @@
           At our interior design and Construction, we are passionate about creating spaces that inspire and enhance your lifestyle. With a team of skilled designers and professionals, we are strive to provide exceptional interior design services that exceed your expectations.<br><br>
           We believe that a well-designed space can have a profound impact on your well-being and quality of life. Whether it’s your home, office, or any other interior environment we understand the importance of creating a space that reflects your personality with meets your functional needs, and brings you joy.
         </p>
-        <a href="contact.html" class="btn-primary">GET STARTED</a>
+        <a href="/avanti/contact.html" class="btn-primary">GET STARTED</a>
       </div>
     </div>
   </section>
@@ -150,16 +101,16 @@
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <a class="service-card-link" href="/services/home-renovation.html">
+                <a class="service-card-link" href="/avanti/services/home-renovation.html">
                     <div class="service-image-container">
                         <picture>
-                            <source media="(max-width: 768px)" srcset="images/home-renovation/main-home-renovation.jpg">
-                            <source media="(min-width: 769px)" srcset="images/home-renovation/main-home-renovation.jpg">
-                            <img class="service-image" src="images/home-renovation/main-home-renovation.jpg" alt="Home Renovation" loading="lazy" decoding="async">
+                            <source media="(max-width: 768px)" srcset="/avanti/images/home-renovation/main-home-renovation.jpg">
+                            <source media="(min-width: 769px)" srcset="/avanti/images/home-renovation/main-home-renovation.jpg">
+                            <img class="service-image" src="/avanti/images/home-renovation/main-home-renovation.jpg" alt="Home Renovation" loading="lazy" decoding="async">
                         </picture>
                         <div class="service-title-bar">
                             <span class="service-name">Home Renovation</span>
-                            <img src="images/svg/home-renovation.svg" alt="Service Icon" class="service-icon" width="24" height="24">
+                            <img src="/avanti/images/svg/home-renovation.svg" alt="Service Icon" class="service-icon" width="24" height="24">
                         </div>
                         <div class="service-details">
                             <h3 class="service-details-title">Home Renovation</h3>
@@ -174,16 +125,16 @@
                 </a>
             </div>
             <div class="service-card">
-                <a class="service-card-link" href="/services/kitchen-renovation.html">
+                <a class="service-card-link" href="/avanti/services/kitchen-renovation.html">
                     <div class="service-image-container">
                         <picture>
-                            <source media="(max-width: 768px)" srcset="images/kitchen-renovation/main-kitchen-renovation.jpg">
-                            <source media="(min-width: 769px)" srcset="images/kitchen-renovation/main-kitchen-renovation.jpg">
-                            <img class="service-image" src="images/kitchen-renovation/main-kitchen-renovation.jpg" alt="Kitchen Renovation" loading="lazy" decoding="async">
+                            <source media="(max-width: 768px)" srcset="/avanti/images/kitchen-renovation/main-kitchen-renovation.jpg">
+                            <source media="(min-width: 769px)" srcset="/avanti/images/kitchen-renovation/main-kitchen-renovation.jpg">
+                            <img class="service-image" src="/avanti/images/kitchen-renovation/main-kitchen-renovation.jpg" alt="Kitchen Renovation" loading="lazy" decoding="async">
                         </picture>
                         <div class="service-title-bar">
                             <span class="service-name">Kitchen Renovation</span>
-                            <img src="images/svg/kitchen-renovation.svg" alt="Service Icon" class="service-icon" width="24" height="24">
+                            <img src="/avanti/images/svg/kitchen-renovation.svg" alt="Service Icon" class="service-icon" width="24" height="24">
                         </div>
                         <div class="service-details">
                             <h3 class="service-details-title">Kitchen Renovation</h3>
@@ -198,7 +149,7 @@
                 </a>
             </div>
             <div class="service-card">
-                <a class="service-card-link" href="/services/bathroom-renovation.html">
+                <a class="service-card-link" href="/avanti/services/bathroom-renovation.html">
                     <div class="service-image-container">
                         <picture>
                             <source media="(max-width: 768px)" srcset="images/bathroom-renovation/main-bathroom-renovation.jpg">
@@ -222,7 +173,7 @@
                 </a>
             </div>
             <div class="service-card">
-                <a class="service-card-link" href="/services/adu.html">
+                <a class="service-card-link" href="/avanti/services/adu.html">
                     <div class="service-image-container">
                         <picture>
                             <source media="(max-width: 768px)" srcset="images/adu/main-adu.jpg">
@@ -246,7 +197,7 @@
                 </a>
             </div>
             <div class="service-card">
-                <a class="service-card-link" href="/services/garage.html">
+                <a class="service-card-link" href="/avanti/services/garage.html">
                     <div class="service-image-container">
                         <picture>
                             <source media="(max-width: 768px)" srcset="images/garage-conversion/main-garage-conversion.jpg">
@@ -270,7 +221,7 @@
                 </a>
             </div>
             <div class="service-card">
-                <a class="service-card-link" href="/services/grading.html">
+                <a class="service-card-link" href="/avanti/services/grading.html">
                     <div class="service-image-container">
                         <picture>
                             <source media="(max-width: 768px)" srcset="images/grading/main-grading.jpg">
@@ -294,16 +245,16 @@
                 </a>
             </div>
             <div class="service-card">
-                <a class="service-card-link" href="/services/foundation.html">
+                <a class="service-card-link" href="/avanti/services/foundation.html">
                     <div class="service-image-container">
                         <picture>
-                            <source media="(max-width: 768px)" srcset="images/foundation/main-foundation.jpg">
-                            <source media="(min-width: 769px)" srcset="images/foundation/main-foundation.jpg">
-                            <img class="service-image" src="images/foundation/main-foundation.jpg" alt="Foundation Services" loading="lazy" decoding="async">
+                            <source media="(max-width: 768px)" srcset="/avanti/images/foundation/main-foundation.jpg">
+                            <source media="(min-width: 769px)" srcset="/avanti/images/foundation/main-foundation.jpg">
+                            <img class="service-image" src="/avanti/images/foundation/main-foundation.jpg" alt="Foundation Services" loading="lazy" decoding="async">
                         </picture>
                         <div class="service-title-bar">
                             <span class="service-name">Foundation Services</span>
-                            <img src="images/svg/foundation.svg" alt="Service Icon" class="service-icon" width="24" height="24">
+                            <img src="/avanti/images/svg/foundation.svg" alt="Service Icon" class="service-icon" width="24" height="24">
                         </div>
                         <div class="service-details">
                             <h3 class="service-details-title">Foundation Services</h3>
@@ -318,16 +269,16 @@
                 </a>
             </div>
             <div class="service-card">
-                <a class="service-card-link" href="/services/framing.html">
+                <a class="service-card-link" href="/avanti/services/framing.html">
                     <div class="service-image-container">
                         <picture>
-                            <source media="(max-width: 768px)" srcset="images/framing/main-framing.jpg">
-                            <source media="(min-width: 769px)" srcset="images/framing/main-framing.jpg">
-                            <img class="service-image" src="images/framing/main-framing.jpg" alt="Framing Services" loading="lazy" decoding="async">
+                            <source media="(max-width: 768px)" srcset="/avanti/images/framing/main-framing.jpg">
+                            <source media="(min-width: 769px)" srcset="/avanti/images/framing/main-framing.jpg">
+                            <img class="service-image" src="/avanti/images/framing/main-framing.jpg" alt="Framing Services" loading="lazy" decoding="async">
                         </picture>
                         <div class="service-title-bar">
                             <span class="service-name">Framing Services</span>
-                            <img src="images/svg/framing.svg" alt="Service Icon" class="service-icon" width="24" height="24">
+                            <img src="/avanti/images/svg/framing.svg" alt="Service Icon" class="service-icon" width="24" height="24">
                         </div>
                         <div class="service-details">
                             <h3 class="service-details-title">Framing Services</h3>
@@ -342,16 +293,16 @@
                 </a>
             </div>
             <div class="service-card">
-                <a class="service-card-link" href="/services.html">
+                <a class="service-card-link" href="/avanti/services.html">
                     <div class="service-image-container">
                         <picture>
-                            <source media="(max-width: 768px)" srcset="images/hero-image.png">
-                            <source media="(min-width: 769px)" srcset="images/hero-image.png">
-                            <img class="service-image" src="images/hero-image.png" alt="View All Services" loading="lazy" decoding="async">
+                            <source media="(max-width: 768px)" srcset="/avanti/images/hero-image.png">
+                            <source media="(min-width: 769px)" srcset="/avanti/images/hero-image.png">
+                            <img class="service-image" src="/avanti/images/hero-image.png" alt="View All Services" loading="lazy" decoding="async">
                         </picture>
                         <div class="service-title-bar">
                             <span class="service-name">View All Services</span>
-                            <img src="images/svg/info.svg" alt="Service Icon" class="service-icon" width="24" height="24">
+                            <img src="/avanti/images/svg/info.svg" alt="Service Icon" class="service-icon" width="24" height="24">
                         </div>
                         <div class="service-details">
                             <h3 class="service-details-title">Explore Our Services</h3>
@@ -371,16 +322,16 @@
   <section id="cta">
     <div class="attention-background">
         <picture>
-            <source media="(max-width: 425px)" srcset="/images/hero-marble.png">
-            <source media="(min-width: 425px)" srcset="/images/hero-marble.png">
-            <img src="/images/hero-marble.png" alt="Marable Background" width="1920" height="1080" loading="lazy" decoding="async">
+            <source media="(max-width: 425px)" srcset="/avanti/images/hero-marble.png">
+            <source media="(min-width: 425px)" srcset="/avanti/images/hero-marble.png">
+            <img src="/avanti/images/hero-marble.png" alt="Marable Background" width="1920" height="1080" loading="lazy" decoding="async">
         </picture>
     </div>
     <div class="container attention-flex">
       <div class="attention-text">
           <div>Your Project Deserves Expert Attention!</div>
       </div>
-      <a href="/contact.html" class="btn btn-primary">Request Quote <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 17L17 7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 7H17V17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/avanti/contact.html" class="btn btn-primary">Request Quote <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 17L17 7" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 7H17V17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </section>
   <section id="reviews">
@@ -388,7 +339,7 @@
       <div class="reviews-left">
         <div class="reviews-trusted">TRUSTED BY<br>CHULA VISTA CLIENTS</div>
         <div class="reviews-avatar">
-          <img src="/images/testimonials/review-a.jpg" alt="Client photo" width="140" height="140">
+          <img src="/avanti/images/testimonials/review-a.jpg" alt="Client photo" width="140" height="140">
         </div>
       </div>
       <div class="reviews-right">
@@ -443,7 +394,7 @@
       <h2 class="title blog-title">Latest Blog Insights</h2>
       <div class="blog-cards-row">
         <div class="blog-card">
-          <img class="blog-card-img" src="images/hero-image.png" alt="Passive House Buildings Design">
+          <img class="blog-card-img" src="/avanti/images/hero-image.png" alt="Passive House Buildings Design">
           <div class="blog-card-content">
             <div class="blog-card-meta-row">
               <span class="blog-card-meta">By Rachel B.</span>
@@ -455,7 +406,7 @@
           </div>
         </div>
         <div class="blog-card">
-          <img class="blog-card-img" src="images/hero-image.png" alt="Funding for Your New Home at London">
+          <img class="blog-card-img" src="/avanti/images/hero-image.png" alt="Funding for Your New Home at London">
           <div class="blog-card-content">
             <div class="blog-card-meta-row">
               <span class="blog-card-meta">By Rachel B.</span>
@@ -467,7 +418,7 @@
           </div>
         </div>
         <div class="blog-card">
-          <img class="blog-card-img" src="images/hero-image.png" alt="Largest Passive House Buildings Solution">
+          <img class="blog-card-img" src="/avanti/images/hero-image.png" alt="Largest Passive House Buildings Solution">
           <div class="blog-card-content">
             <div class="blog-card-meta-row">
               <span class="blog-card-meta">By Max T.</span>
@@ -484,24 +435,24 @@
   <section id="footer">
     <div class="footer-bg">
       <div class="footer-image">
-        <img src="/images/footer.png" alt="Footer Background" loading="lazy">
+        <img src="/avanti/images/footer.png" alt="Footer Background" loading="lazy">
       </div>
       <div class="footer-content">
         <div class="footer-left">
           <h2 class="title footer-title">Let's Build Something<br>Great Together!</h2>
           <div class="footer-buttons">
-            <a href="/contact.html" class="btn-primary">GET STARTED</a>
-            <a href="/contact.html" class="btn-secondary">CONTACT US</a>
+            <a href="/avanti/contact.html" class="btn-primary">GET STARTED</a>
+            <a href="/avanti/contact.html" class="btn-secondary">CONTACT US</a>
           </div>
         </div>
         <div class="footer-right">
           <div class="footer-links">
             <div class="footer-col">
               <div class="footer-col-title">Quick Links</div>
-              <a href="/about.html" class="footer-link">About</a>
-              <a href="/blog.html" class="footer-link">Blog</a>
-              <a href="/services.html" class="footer-link">Services</a>
-              <a href="/contact.html" class="footer-link">Contact</a>
+              <a href="/avanti/about.html" class="footer-link">About</a>
+              <a href="/avanti/blog.html" class="footer-link">Blog</a>
+              <a href="/avanti/services.html" class="footer-link">Services</a>
+              <a href="/avanti/contact.html" class="footer-link">Contact</a>
             </div>
             <div class="footer-col">
               <div class="footer-col-title">Address</div>
@@ -516,5 +467,5 @@
     </div>
   </section>
 </body>
-<script src="script.js"></script>
+<script src="/avanti/script.js"></script>
 </html> 
