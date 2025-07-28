@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+#glow-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.center-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.credit-card-img {
+  width: 420px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  border-radius: 20px;
+  background: transparent;
+}
+
+.card-3d-container {
+  perspective: 1200px;
+  width: 420px;
+  max-width: 90vw;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#credit-card-3d {
+  transition: transform 0.2s cubic-bezier(.25,.8,.25,1), box-shadow 0.2s;
+  will-change: transform;
+  display: block;
+} 
+
+#password-overlay {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(20,20,20,0.97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#password-form {
+  background: #222;
+  padding: 2em 2.5em;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#password-form h2 {
+  color: #fff;
+  margin-bottom: 1em;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}
+#site-password {
+  padding: 0.7em 1em;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  font-size: 1em;
+  margin-bottom: 1em;
+  width: 220px;
+  background: #181818;
+  color: #fff;
+}
+#password-form button {
+  padding: 0.7em 1.5em;
+  border-radius: 5px;
+  border: none;
+  background: #e6c97a;
+  color: #181818;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#password-form button:hover {
+  background: #d1b45a;
+} 
