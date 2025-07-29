@@ -1,0 +1,321 @@
+#header {
+  background: var(--avanti-dark);
+  color: #fff;
+  padding: 0 2rem;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#header .header-flex {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#header .logo-image {
+  height: 30px;
+  width: auto;
+}
+#header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+#header .header-actions nav {
+  display: block;
+}
+#header .header-actions nav > ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#header .header-actions nav ul li {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#header .header-actions nav ul li a {
+  color: var(--avanti-light);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#header .header-actions nav ul li a:hover,
+#header .header-actions nav ul li a.active {
+  color: var(--avanti-gold);;
+}
+#header .btn {
+  background: transparent;
+  color: var(--avanti-gold);
+  padding: 0.6em 1.4em;
+  border: 2px solid var(--avanti-gold);
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  text-align: center;
+}
+#header .btn:hover {
+  background: var(--avanti-gold);
+  color: var(--avanti-dark);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+#header .nav-arrow {
+  margin-left: 1px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown Menu Styles */
+#header .has-dropdown {
+  position: relative;
+}
+
+#header .has-dropdown:hover .nav-arrow {
+  transform: rotate(180deg);
+}
+
+#header .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(10px);
+  background: #111;
+  min-width: 250px;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  list-style: none;
+}
+
+#header .has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#header .dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 20px;
+  transform: rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #111;
+}
+
+#header .dropdown-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#header .dropdown-menu li {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#header .dropdown-menu li a {
+  padding: 0.4rem 1.5rem;
+  display: block;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+#header .dropdown-menu li a:hover {
+  background: rgba(255, 102, 0, 0.1);
+  color: #ff6600;
+}
+
+#header .has-dropdown.active > a {
+  color: #ff6600;
+}
+
+/* Hamburger Menu Styles */
+#header .hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+}
+
+#header .hamburger-menu span {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 1050px) {
+  #header .hamburger-menu {
+    display: flex;
+  }
+
+  #header .header-actions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #111;
+    flex-direction: column;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  #header .header-actions.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #header .header-actions nav {
+    width: 100%;
+  }
+
+  #header .header-actions nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-left: 20px;
+  }
+
+  #header .header-actions nav ul li {
+    width: 100%;
+    text-align: left;
+  }
+
+  #header .header-actions nav ul li a {
+    font-size: 1rem;
+    justify-content: flex-start;
+    padding: 0.5rem 0;
+    display: block;
+    width: 100%;
+  }
+
+  #header .btn {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 1rem;
+  }
+
+  /* Mobile Dropdown Styles */
+  #header .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+    box-shadow: none;
+    padding: 0.5rem 0 0 0;
+    min-width: auto;
+    display: none;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  #header .dropdown-menu::before {
+    display: none;
+  }
+
+  #header .has-dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  /* Hide other menu items when services is active */
+  #header .has-dropdown.active ~ li {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  #header .has-dropdown.active ~ li:last-child {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    margin-top: 1rem;
+    pointer-events: auto;
+  }
+
+  #header .dropdown-menu ul {
+    align-items: flex-start;
+  }
+
+  #header .dropdown-menu li {
+    width: 100%;
+    text-align: left;
+  }
+
+  #header .dropdown-menu li a {
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    text-align: left;
+    justify-content: flex-start;
+    display: block;
+    width: 100%;
+    color: #fff;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+  }
+
+  #header .dropdown-menu li a:hover {
+    opacity: 1;
+    color: #ff6600;
+    background: transparent;
+  }
+
+  /* Hamburger Animation */
+  .hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}

@@ -1,0 +1,202 @@
+:root {
+    --avanti-gold: #E6C686;
+    --avanti-dark: #181818;
+    --avanti-font: 'Titillium Web', Arial, sans-serif;
+}
+*{
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+body{
+    margin: 0;
+    font-family: var(--avanti-font);
+    color: var(--avanti-dark);
+    background: #ffffff;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header-wrapper{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.pretitle{
+    display: block;
+    color: #C59B5E;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+.title{
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #222222;
+}
+.description{
+    font-size: 1.08rem;
+    color: #707477;
+    line-height: 1.6;
+    margin-bottom: 2.2rem; 
+}
+.btn-primary{
+    display: inline-block;
+    background: #e6c97a;
+    color: #222222;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: none;
+    font-size: 1.1rem;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background: #fadc8a;
+}
+.btn-secondary{
+    display: inline-block;
+    background: #181818;
+    color: #fff;
+    border: 1.5px solid #444;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.btn-secondary:hover {
+    background: #222;
+}
+
+/* Password Protection Overlay */
+#password-overlay {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background-color: #000;
+  background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glow-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 50%, rgba(128, 128, 128, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-container {
+  position: relative;
+  z-index: 1;
+}
+
+.login-card {
+  background: rgba(128, 128, 128, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.avanti-logo-img {
+  max-width: 200px;
+  margin: 0 auto 30px auto;
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ccc;
+  font-size: 0.9em;
+}
+
+#site-password {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#site-password:focus {
+  outline: none;
+  border-color: #fadc8a;
+  box-shadow: 0 0 10px #fadc8a;
+}
+
+#site-password::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #e6c97a, #fadc8a);
+  border: none;
+  border-radius: 8px;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: linear-gradient(45deg, #fadc8a, #e6c97a);
+}
+
+.login-btn:active {
+  background: linear-gradient(45deg, #fadc8a, #e6c97a);
+  transform: translateY(0);
+}
+
+.error-message {
+  color: #ff6b6b;
+  margin-top: 10px;
+  font-size: 0.9em;
+  display: none;
+}

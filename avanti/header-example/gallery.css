@@ -1,0 +1,126 @@
+#gallery {
+  padding: 60px 0 40px 0;
+  background: #faf9f6;
+}
+#gallery .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+#gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+#gallery .gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 0;
+  border-radius: 0;
+  display: block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+@media (max-width: 1024px) {
+  #gallery .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  #gallery .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Gallery Modal Styles */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+}
+.gallery-modal.open {
+  display: flex;
+}
+.gallery-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90vw;
+  max-height: 80vh;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  background: #fff;
+}
+.gallery-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1010;
+  transition: color 0.2s;
+}
+.gallery-close:hover {
+  color: #ff6600;
+}
+.gallery-prev, .gallery-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  margin-top: -24px;
+  color: #fff;
+  font-size: 48px;
+  font-weight: bold;
+  user-select: none;
+  z-index: 1010;
+  text-align: center;
+  line-height: 48px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  transition: background 0.2s, color 0.2s;
+}
+.gallery-prev {
+  left: 32px;
+}
+.gallery-next {
+  right: 32px;
+}
+.gallery-prev:hover, .gallery-next:hover {
+  background: #ff6600;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .gallery-close {
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+  }
+  .container {
+    padding: 0;
+  }
+  .gallery-prev, .gallery-next {
+    width: 36px;
+    height: 36px;
+    font-size: 32px;
+    margin-top: -18px;
+    left: 8px;
+    right: 8px;
+  }
+  .gallery-prev {
+    left: 8px;
+  }
+  .gallery-next {
+    right: 8px;
+  }
+} 
