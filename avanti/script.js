@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const reviews = [
     {
       photo: '/avanti/images/reviews/review-c.jpg',
-      quote: '“I would absolutely recommend Daire and Lyne Construction to any homeowner looking to expertly and efficiently remodel or improve their home. ”',
+      quote: '“I would absolutely recommend RJ and Builder Mindframe to any homeowner looking to expertly and efficiently remodel or improve their home. ”',
       name: 'Emilie Oberhauser',
       role: 'Proud Homeowner'
     },
