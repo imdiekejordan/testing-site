@@ -1,0 +1,210 @@
+#hero {
+  color: #fff;
+  padding: 3em 0 2em 0;
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+#hero .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+#hero .hero-background picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#hero .hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(34,34,34,0.85) 0%, rgba(34,34,34,0.5) 80%, rgba(34,34,34,0.2) 100%);
+  clip-path: polygon(0 0, 45% 0, 55% 100%, 0% 100%);
+  pointer-events: none;
+}
+#hero .hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2em;
+}
+#hero .hero-text {
+  flex: 1 1 350px;
+}
+#hero .hero-text h1 {
+  font-size: 4.5em;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 60px;
+  letter-spacing: -2px;
+  max-width: 16ch;
+}
+#hero .hero-btns {
+  display: flex;
+  gap: 1em;
+}
+#hero .hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+#hero .hero-cta-btn {
+  width: 185px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0;
+  background: #CD1122;
+  color: #fff;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+#hero .hero-cta-btn:hover {
+  background: #CD1122;
+}
+#hero .hero-phone-cta {
+  display: flex;
+  align-items: center;
+  border-radius: 2em;
+  padding: 0.5em 1.5em 0.5em 0.5em;
+  gap: 1em;
+}
+#hero .hero-phone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+#hero .hero-phone-icon svg {
+  filter: brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(7482%) hue-rotate(357deg) brightness(95%) contrast(118%);
+}
+#hero .hero-phone-label {
+  display: block;
+  color: #bdbdbd;
+  font-size: 1em;
+}
+#hero .hero-phone-number {
+  color: #fff;
+  font-size: 1.35em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1050px) {
+  #hero .hero-text h1 {
+    font-size: 4em;
+  }
+  #hero::before {
+    clip-path: polygon(0 0, 55% 0, 65% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  #hero .hero-text h1 {
+    font-size: 4em;
+  }
+  #hero::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  #hero .hero-phone-cta {
+    width: 185px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0;
+    background: #111111;
+    color: #CD1122;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  #hero .hero-phone-cta:hover {
+    background: #111111;
+  }
+  #hero .hero-phone-icon {
+    display: none;
+  }
+  #hero .hero-phone-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  #hero .hero-phone-label {
+    display: none;
+  }
+  #hero .hero-phone-number {
+    
+    font-size: 16px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 570px) {
+  #hero .hero-text h1 {
+    font-size: 3em;
+  }
+  #hero .hero-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  #hero .hero-cta-btn,
+  #hero .hero-phone-cta {
+    width: 180px;
+    height: 55px;
+    font-weight: 800;
+    font-size: 14px;
+  }
+  #hero .hero-phone-number {
+    font-size: 14px;
+  }
+}
+@media (max-width: 375px) {
+  #hero .hero-text h1 {
+    font-size: 2.5em;
+  }
+}
+

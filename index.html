@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Site Access - Ink Web Design</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #000;
+      background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      color: white;
+    }
+
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-card {
+      background: rgba(128, 128, 128, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .login-card h1 {
+      margin-bottom: 30px;
+      color: #fff;
+      font-size: 2em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ccc;
+      font-size: 0.9em;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #e65c00;
+      box-shadow: 0 0 10px #e65c00;
+    }
+
+    .form-group input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+         .login-btn {
+       width: 100%;
+       padding: 12px;
+       background: linear-gradient(45deg, #e65c00, #e65c00);
+       border: none;
+       border-radius: 8px;
+       color: #fafafa;
+       font-size: 16px;
+       font-weight: bold;
+       cursor: pointer;
+       transition: all 0.3s ease;
+     }
+
+     .login-btn:hover {
+       background: linear-gradient(45deg, #e65c00, #e65c00);
+    
+     }
+
+     .login-btn:active {
+       background: linear-gradient(45deg, #e65c00, #e65c00);
+       transform: translateY(0);
+     }
+
+    .error-message {
+      color: #ff6b6b;
+      margin-top: 10px;
+      font-size: 0.9em;
+      display: none;
+    }
+
+    .success-message {
+      color: #e65c00;
+      margin-top: 10px;
+      font-size: 0.9em;
+      display: none;
+    }
+
+    .glow-effect {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at 50% 50%, rgba(128, 128, 128, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-effect"></div>
+  <div class="login-container">
+    <div class="login-card">
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="login-btn">Access Site</button>
+        <div id="errorMessage" class="error-message">Incorrect password. Please try again.</div>
+        <div id="successMessage" class="success-message">Access granted! Redirecting...</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+      const successMessage = document.getElementById('successMessage');
+      
+      // Hide any existing messages
+      errorMessage.style.display = 'none';
+      successMessage.style.display = 'none';
+      
+      // Define passwords for different sites
+      const avantiPassword = 'avanti123';
+      const socalseismicPassword = 'socal123';
+      
+      if (password === avantiPassword) {
+        successMessage.textContent = 'Access granted to Avanti! Redirecting...';
+        successMessage.style.display = 'block';
+        document.querySelector('.login-btn').textContent = 'Access Granted!';
+        document.querySelector('.login-btn').style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+        
+        // Redirect to Avanti site after a short delay
+        setTimeout(() => {
+          window.location.href = '/avanti/index.html';
+        }, 1500);
+      } else if (password === socalseismicPassword) {
+        successMessage.textContent = 'Access granted to Socalseismic! Redirecting...';
+        successMessage.style.display = 'block';
+        document.querySelector('.login-btn').textContent = 'Access Granted!';
+        document.querySelector('.login-btn').style.background = 'linear-gradient(45deg, #2196F3, #1976D2)';
+        
+        // Redirect to Socalseismic site after a short delay
+        setTimeout(() => {
+          window.location.href = '/socalseismic/index.html';
+        }, 1500);
+      } else {
+        errorMessage.textContent = 'Incorrect password. Please try again.';
+        errorMessage.style.display = 'block';
+        document.getElementById('password').value = '';
+        document.getElementById('password').focus();
+      }
+    });
+
+    // Add some interactive effects
+    document.getElementById('password').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+      }
+    });
+  </script>
+</body>
+</html> 

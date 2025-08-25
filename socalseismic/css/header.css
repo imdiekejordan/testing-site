@@ -1,0 +1,329 @@
+#header {
+  background: #111;
+  color: #fff;
+  padding: 1em 0;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#header .header-flex {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+#header .logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 0.9;
+  z-index: 100;
+  color: #0167FE;
+}
+#header .logo span {
+  color: #CD1122;
+  margin-top: 0.1em;
+  letter-spacing: 1px;
+  font-size: inherit;
+}
+#header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+#header .header-actions nav {
+  display: block;
+}
+#header .header-actions nav > ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#header .header-actions nav ul li {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#header .header-actions nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Titillium Web', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#header .header-actions nav ul li a:hover,
+#header .header-actions nav ul li a.active {
+  color: #CD1122;
+}
+#header .btn {
+  width: 185px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0;
+}
+#header .nav-arrow {
+  margin-left: 1px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown Menu Styles */
+.has-dropdown {
+  position: relative;
+}
+
+.has-dropdown:hover .nav-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(10px);
+  background: #111;
+  min-width: 250px;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  list-style: none;
+}
+
+.has-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 20px;
+  transform: rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #111;
+}
+
+.dropdown-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  padding: 0.4rem 1.5rem;
+  display: block;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(255, 102, 0, 0.1);
+  color: #CD1122;
+}
+
+.has-dropdown.active > a {
+  color: #CD1122;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+}
+
+.hamburger-menu span {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 1050px) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  #header .header-actions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #111;
+    flex-direction: column;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  #header .header-actions.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #header .header-actions nav {
+    width: 100%;
+  }
+
+  #header .header-actions nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  #header .header-actions nav ul li {
+    width: 100%;
+    text-align: left;
+  }
+
+  #header .header-actions nav ul li a {
+    font-size: 1rem;
+    justify-content: flex-start;
+    padding: 0.5rem 0;
+    display: block;
+    width: 100%;
+  }
+
+  #header .btn {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 1rem;
+  }
+
+  /* Mobile Dropdown Styles */
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: transparent;
+    box-shadow: none;
+    padding: 0.5rem 0 0 0;
+    min-width: auto;
+    display: none;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-menu::before {
+    display: none;
+  }
+
+  .has-dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  /* Hide other menu items when services is active */
+  .has-dropdown.active ~ li {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .has-dropdown.active ~ li:last-child {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    margin-top: 1rem;
+    pointer-events: auto;
+  }
+
+  .dropdown-menu ul {
+    align-items: flex-start;
+  }
+
+  .dropdown-menu li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .dropdown-menu li a {
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    text-align: left;
+    justify-content: flex-start;
+    display: block;
+    width: 100%;
+    color: #fff;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-menu li a:hover {
+    opacity: 1;
+    color: #CD1122;
+    background: transparent;
+  }
+
+  /* Hamburger Animation */
+  .hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+/* Remove logout button styles */
+
+
